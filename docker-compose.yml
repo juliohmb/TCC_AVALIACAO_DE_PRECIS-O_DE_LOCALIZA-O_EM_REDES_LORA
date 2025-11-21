@@ -1,0 +1,24 @@
+# docker-compose.yml
+
+services:
+  # --- Jupyter lab ---
+  jupyter:
+    build: .
+    container_name: jupyter
+    ports:
+      - "8888:8888"
+
+    volumes:
+      - /srv/tcc:/home/jovyan/work
+    deploy: # << DÁ ACESSO À GPU NVIDIA SE HOUVER
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    environment:
+      - JUPYTER_TOKEN=tcc # <-- DEFINA SUA SENHA AQUI
+      - TZ=America/Sao_Paulo
+
+    restart: unless-stopped

@@ -1,0 +1,47 @@
+{
+    "hdop_threshold": 5.0,
+    "bounds": {
+        "min_lat": 51.185,
+        "max_lat": 51.2361,
+        "min_lon": 4.325,
+        "max_lon": 4.459
+    },
+
+    "min_gateways_rssi": 3,
+    "min_gateways_tdoa": 3,
+    "min_gateways_ransac": 4,
+
+    "rssi_ref": -21.7,
+    "path_loss_n": 2.70,
+
+    "ransac_iterations": 50,
+    "ransac_consensus_threshold_m": 500,
+
+    "kalman_q_val": 0.1,
+    "kalman_r_cl": 500,
+    "kalman_r_wcl": 300,
+    "kalman_r_mlat_lse": 250,
+    "kalman_r_tdoa_lm": 100,
+    "kalman_r_tdoa_ransac": 50,
+    "kalman_r_tdoa_bestgeom": 50,
+
+    "kalman_warmup_steps": 10, 
+
+    "total_area_km2": 53.07,
+
+    "nn_config": {
+        "gt_interval_seconds": 600,
+        "hidden_neurons": 10,
+        "epochs": 4000,
+        "batch_size": 32,
+        "test_split_size": 0.2,
+        "validation_split_size": 0.1,
+        "patience_early_stop": 50,
+        "default_rssi": -120.0,
+        "model_save_path": "modelo_nn_lora_gt.h5",
+        "input_scaler_save_path": "input_scaler.joblib",
+        "output_scaler_save_path": "output_scaler.joblib"
+    },
+    "use_calibrated_rssi_params": false, 
+    "calibration_file_path": "gateway_calibration_A_n.json"
+}
